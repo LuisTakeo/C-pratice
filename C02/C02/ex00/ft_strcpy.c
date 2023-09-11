@@ -10,9 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+#include <unistd.h>
+
+void ft_putchar(char c)
 {
-	int	i;
+	write(1, &c, 1);
+}
+
+void ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+char *ft_strcpy(char *dest, char *src)
+{
+	int i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -24,10 +43,9 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-int	main(void)
+int main(void)
 {
 	char texto[10];
 
-	texto = "Texto";
-	printf("%s", texto);
+	ft_putstr(ft_strcpy(texto, "Texto"));
 }
